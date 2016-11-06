@@ -3,15 +3,17 @@
     <form class="" ng-submit="addProject()">
       <div class="list">
         <label class="item item-input">
-          <input type="text" placeholder="Nome">
+          <input type="text" placeholder="Nome" ng-model="projectData.name">
         </label>
         <label class="item item-input">
-          <textarea placeholder="Descrição" rows="8"></textarea>
+          <textarea placeholder="Descrição" rows="8" ng-model="projectData.description"></textarea>
         </label>
         <div class="padding">
           <button class="button button-block button-positive" type="submit">Adicionar projeto</button>
         </div>
       </div>
     </form>
+
+    <div class="balanced padding">{{statusMsg}}</div>
   </ion-content>
 </ion-view>
