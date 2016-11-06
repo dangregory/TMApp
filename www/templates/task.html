@@ -6,7 +6,20 @@
                 <p>{{task.description}}</p>
             </div>
             <div class="item item-body">
-                <p>{{task.priority}}</p>
+                <div class="row">
+                    <div class="col-33">
+                        <h3>Prioridade</h3>
+                        <p>{{task.priority}}</p>
+                    </div>
+                    <div class="col-33">
+                        <h3>Status</h3>
+                        <p>{{task.status}}</p>
+                    </div>
+                    <div class="col-33">
+                        <h3>Data Limite</h3>
+                        <p>{{task.deadline}}</p>
+                    </div>
+                </div>
             </div>
             <div class="item tabs tabs-secondary tabs-icon-left">
                 <a class="tab-item">
