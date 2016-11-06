@@ -1,0 +1,22 @@
+<ion-view title="Projeto">
+    <ion-content class="has-header">
+        <div class="list card">
+            <div class="item item-body">
+                <h2>{{project.name}}</h2>
+                <p>{{project.description}}</p>
+            </div>
+            <div class="item item-body">
+                <h3>Tarefas</h3>
+                <p ng-repeat="task in project.tasks">{{task.name}}</p>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item">
+                    <i class="icon ion-edit"></i>
+                </a>
+                <a class="tab-item">
+                    <i class="icon ion-trash-b"></i>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
