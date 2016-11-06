@@ -1,0 +1,46 @@
+<ion-view view-title="Nova tarefa">
+    <ion-content>
+        <form class="" ng-submit="addTask()">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="Nome" ng-model="taskData.name">
+                </label>
+                <label class="item item-input">
+                    <textarea placeholder="Descrição" rows="8" ng-model="taskData.description"></textarea>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Prioridade
+                    </div>
+                    <select ng-model="taskData.priority">
+                        <option selected>Alta</option>
+                        <option >Média</option>
+                        <option>Baixa</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Status
+                    </div>
+                    <select ng-model="taskData.status">
+                        <option selected>Aberta</option>
+                        <option >Em andamento</option>
+                        <option>Fechada</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Projeto
+                    </div>
+                    <select ng-model="taskData._creator" ng-options="project.name for project in projects track by project.id">
+                    </select>
+                </label>
+                <div class="padding">
+                    <button class="button button-block button-positive" type="submit">Adicionar projeto</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="balanced padding">{{statusMsg}}</div>
+    </ion-content>
+</ion-view>

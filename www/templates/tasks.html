@@ -1,0 +1,20 @@
+<ion-view view-title="Tarefas">
+    <ion-content class="has-footer has-tabs">
+        <ion-list>
+            <ion-item ng-repeat="task in tasks" href="#/app/tasks/{{task._id}}">
+                {{task.name}}
+            </ion-item>
+        </ion-list>
+        <div class="tabs">
+            <a class="tab-item" ng-model="">
+    Todas
+  </a>
+            <a class="tab-item">
+    Concluídas
+  </a>
+            <a class="tab-item">
+    Em andamento
+  </a>
+        </div>
+    </ion-content>
+</ion-view>
