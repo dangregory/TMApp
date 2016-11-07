@@ -12,5 +12,9 @@ angular.module('TMApp')
             getProject: function(projectId) {
                 return $http.get(apiService.url + '/project/' + projectId);
             },
+
+            deleteProject: function(projectId) {
+                return $http.delete(apiService.url + '/project/' + projectId);
+            }
         }
     });
