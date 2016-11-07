@@ -1,21 +1,14 @@
 angular.module('TMApp')
-    .controller('TasksCtrl', function($scope, $state, apiService, taskService, projectService) {
-        //On enter view
-
-        projectService.getProjects()
-            .then(function(res) {
-                //Bind $scope.projects with data from API
-                $scope.projects = res.data;
-                console.log($scope.projects);
-            }, function(err) {
-                console.log(err);
-            });
+    .controller('TasksCtrl', function($scope, $state, $filter, apiService, taskService) {
 
         //Request on task service
         taskService.getTasks()
             .then(function(res) {
                 //Bind $scope.tasks with data from API
-                $scope.tasks = res.data;
+                $scope.auxTasks = res.data;
+                $scope.tasks = $scope.auxTasks;
+
+                console.log(res.data);
             }, function(err) {
                 console.log(err);
             });
@@ -45,4 +38,9 @@ angular.module('TMApp')
                     console.log(err);
                 });
         };
+
+        $scope.filterTasks = function(status){
+          $scope.tasks = $filter('filter')($scope.auxTasks, { status: status });
+          console.log($scope.tasks);
+        }
     });

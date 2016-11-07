@@ -10,16 +10,10 @@
                 {{task.name}}
             </ion-item>
         </ion-list>
-        <div class="tabs">
-            <a class="tab-item" ng-model="">
-    Todas
-  </a>
-            <a class="tab-item">
-    Concluídas
-  </a>
-            <a class="tab-item">
-    Em andamento
-  </a>
-        </div>
     </ion-content>
+    <div class="tabs">
+        <button class="tab-item" ng-click="filterTasks('')">Todas</button>
+        <button class="tab-item" ng-click="filterTasks('completed')">Concluídas</button>
+        <button class="tab-item" ng-click="filterTasks('waiting')">Em andamento</button>
+    </div>
 </ion-view>

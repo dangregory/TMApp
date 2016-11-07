@@ -35,6 +35,7 @@ angular.module('TMApp')
                         .then(function(res) {
                             //Bind $scope.projects with data from API
                             $scope.projects = res.data;
+                            $scope.projectData = {};
                         }, function(err) {
                             console.log(err);
                         });
