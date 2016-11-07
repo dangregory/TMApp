@@ -1,11 +1,12 @@
 angular.module('TMApp')
-    .controller('TasksCtrl', function($scope, apiService, taskService, projectService) {
+    .controller('TasksCtrl', function($scope, $state, apiService, taskService, projectService) {
         //On enter view
 
         projectService.getProjects()
             .then(function(res) {
                 //Bind $scope.projects with data from API
                 $scope.projects = res.data;
+                console.log($scope.projects);
             }, function(err) {
                 console.log(err);
             });
@@ -22,11 +23,26 @@ angular.module('TMApp')
         //New task
         $scope.taskData = {};
         $scope.statusMsg = '';
+
         $scope.addTask = function() {
-            console.log($scope.taskData);
-            /*taskService.addTask($scope.taskData)
+            taskService.addTask($scope.taskData)
                 .then(function() {
                     $scope.statusMsg = 'Tarefa adicionado!';
-                });*/
+                });
         }
+
+        $scope.addTaskScreen = function() {
+            $state.go('app.new-task');
+        }
+
+        //Refresh
+        $scope.doRefresh = function() {
+            taskService.getTasks()
+                .then(function(res) {
+                    $scope.tasks = res.data;
+                    $scope.$broadcast('scroll.refreshComplete');
+                }, function(err) {
+                    console.log(err);
+                });
+        };
     });

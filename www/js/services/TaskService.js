@@ -12,5 +12,9 @@ angular.module('TMApp')
             getTask: function(taskId) {
                 return $http.get(apiService.url + '/task/' + taskId);
             },
+
+            deleteTask: function(taskId) {
+                return $http.delete(apiService.url + '/task/' + taskId);
+            }
         }
     });
